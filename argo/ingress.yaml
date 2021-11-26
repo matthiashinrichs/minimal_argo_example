@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: guestbook-webui
+  namespace: minimal
+spec:
+  rules:
+  - host: minimal.k8s.hnrx.de
+    http:
+      paths:
+      - backend:
+          service:
+            name: guestbook-webui
+            port:
+              number: 80
+        pathType: ImplementationSpecific
